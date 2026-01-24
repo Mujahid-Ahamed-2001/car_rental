@@ -1,0 +1,26 @@
+import React from 'react'
+import CarCard from './CarCard'
+import { assets, dummyCarData } from '../assets/assets'
+import Title from './Title'
+
+const Featured = () => {
+  return (
+    <div className='flex flex-col items-center py-24 px-6 md:px-16 lg:px-24 xl:px-32'>
+      <div>
+        <Title title="Featured Cars" subtitle="Explore our hand-picked selection of top-rated vehicles, perfect for your next adventure." align="center" />
+      </div>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-18'>
+        {dummyCarData.slice(0,6).map((car) => (
+          <div key={car._id}>
+            <CarCard car={car} />
+          </div>
+        ))}  
+      </div>
+      <button className='flex items-center justify-center gap-2 px-6 py-2 border border-borderColor hover:bg-primary hover:text-white hover:scale-110 rounded-md mt-18 cursor-pointer group transition-all duration-300'>
+        Explore More <img src={assets.arrow_icon} alt="arrow" className='group-hover:translate-x-2 transition-all duration-300' />
+      </button>
+    </div>
+  )
+}
+
+export default Featured
